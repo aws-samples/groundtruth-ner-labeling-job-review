@@ -1,0 +1,44 @@
+{
+    "app": "node bin/cdk.js",
+    "requireApproval": "never",
+    "watch": {
+        "include": [
+            "**"
+        ],
+        "exclude": [
+            "README.md",
+            "cdk*.json",
+            "jest.config.js",
+            "package*.json",
+            "yarn.lock",
+            "node_modules",
+            "test"
+        ]
+    },
+    "context": {
+        "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
+        "@aws-cdk/core:stackRelativeExports": true,
+        "@aws-cdk/aws-rds:lowercaseDbIdentifier": true,
+        "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+        "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": true,
+        "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
+        "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
+        "@aws-cdk/core:target-partitions": [
+            "aws",
+            "aws-cn"
+        ],
+        "CMK_ARN": "<ARN of the customer master key in KMS.>",
+        "VPC_ID": "<Id of the VPC to be used for the ECS tasks.>",
+        "SUBNET_IDS": [
+            "<Two or more subnets to be used for the ECS tasks.>"
+        ],
+        "VPC_SECURITYGROUP_ID": "<Id of the SecurityGroup to be used for the ECS tasks.>",
+        "ENTITY_REVIEW_UI_NAME": "<A unique name for the UI used for the A2I review. e.g. ner-entity-review-ui>",
+        "TASK_CPU": "1024",
+        "TASK_RAM": "2048",
+        "CONTAINER_RAM": "512",
+        "LOG_LEVEL": "DEBUG",
+        "ACCESS_LOG_BUCKET": "<ARN of the access log bucket>",
+        "ACCESS_LOG_PREFIX": "<A key prefix for the access logs. e.g. groundtruth-review>"
+    }
+}

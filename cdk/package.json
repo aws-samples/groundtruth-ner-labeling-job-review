@@ -1,0 +1,19 @@
+{
+  "name": "cdk",
+  "version": "0.1.0",
+  "description": "CDK script to deploy the stack.",
+  "author": "SureshkumarKV",
+  "license": "MIT-0",
+  "bin": {
+    "cdk": "bin/cdk.js"
+  },
+  "scripts": {
+    "build": "echo \"The build step is not required when using JavaScript!\" && exit 0",
+    "cdk": "cdk"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.11.0",
+    "cdk-nag": "2.12.28",
+    "constructs": "10.0.5"
+  }
+}
