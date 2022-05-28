@@ -30,7 +30,7 @@
         "CMK_ARN": "<ARN of the customer master key in KMS.>",
         "VPC_ID": "<Id of the VPC to be used for the ECS tasks.>",
         "SUBNET_IDS": [
-            "<Two or more subnets to be used for the ECS tasks.>"
+            "<Two or more private subnets with NAT access, to be used for the ECS tasks.>"
         ],
         "VPC_SECURITYGROUP_ID": "<Id of the SecurityGroup to be used for the ECS tasks.>",
         "ENTITY_REVIEW_UI_NAME": "<A unique name for the UI used for the A2I review. e.g. ner-entity-review-ui>",

@@ -22,18 +22,20 @@ const cdkNag = require('cdk-nag');
 exports.configure = (stack) => {
     Aspects.of(stack).add(new cdkNag.AwsSolutionsChecks({ verbose: true }));
 
+    const accountId = process.env.CDK_DEFAULT_ACCOUNT;
+
     const items = [
         {
             path: '/GroundTruthReviewCDKStack/review-preparation-task-construct/review-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'Multiple human review loops needs to be managed.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:sagemaker:ap-south-1:254146700122:flow-definition/*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:sagemaker:ap-south-1:${accountId}:flow-definition/*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/continue-function/ServiceRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'Multiple human review loops needs to be managed.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:sagemaker:ap-south-1:254146700122:flow-definition/*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:sagemaker:ap-south-1:${accountId}:flow-definition/*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/continue-function/ServiceRole/Resource',
@@ -45,7 +47,7 @@ exports.configure = (stack) => {
             path: '/GroundTruthReviewCDKStack/continue-function/ServiceRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'Task token APIs are not tied to a resource.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:states:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:states:ap-south-1:${accountId}:*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/continue-function/ServiceRole/DefaultPolicy/Resource',
@@ -87,25 +89,25 @@ exports.configure = (stack) => {
             path: '/GroundTruthReviewCDKStack/data-preparation-task-construct/data-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'SNS topic externally supplied at runtime.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:sns:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:sns:ap-south-1:${accountId}:*`],
         },
         {
             path: 'GroundTruthReviewCDKStack/data-preparation-task-construct/data-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'This is needed to be able to create log groups.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:logs:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:logs:ap-south-1:${accountId}:*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/data-preparation-task-construct/data-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'Stepfunction tokens are not tied to a resource.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:states:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:states:ap-south-1:${accountId}:*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/data-preparation-task-construct/data-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'This is needed to create human review loops under a flow definition.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:sagemaker:ap-south-1:254146700122:flow-definition/*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:sagemaker:ap-south-1:${accountId}:flow-definition/*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/data-preparation-task-construct/data-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
@@ -135,19 +137,19 @@ exports.configure = (stack) => {
             path: '/GroundTruthReviewCDKStack/review-preparation-task-construct/review-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'SNS topic externally supplied at runtime.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:sns:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:sns:ap-south-1:${accountId}:*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/review-preparation-task-construct/review-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'This is needed to be able to create log groups.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:logs:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:logs:ap-south-1:${accountId}:*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/review-preparation-task-construct/review-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
             id: 'AwsSolutions-IAM5',
             reason: 'Task token APIs are not tied to a resource.',
-            appliesTo: ['Resource::arn:<AWS::Partition>:states:ap-south-1:254146700122:*'],
+            appliesTo: [`Resource::arn:<AWS::Partition>:states:ap-south-1:${accountId}:*`],
         },
         {
             path: '/GroundTruthReviewCDKStack/review-preparation-task-construct/review-preparation-task-construct_task_definition/TaskRole/DefaultPolicy/Resource',
