@@ -1,5 +1,5 @@
 {
-  "name": "resource-function",
+  "name": "@aws-samples/resource-function",
   "version": "1.0.0",
   "description": "Lambda function implementing custom construct for managing A2I Human review UI.",
   "main": "index.js",

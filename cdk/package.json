@@ -1,5 +1,5 @@
 {
-  "name": "cdk",
+  "name": "@aws-samples/cdk",
   "version": "0.1.0",
   "description": "CDK script to deploy the stack.",
   "author": "SureshkumarKV",
